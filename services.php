@@ -40,14 +40,14 @@
         <div class="row align-items-center">
           
           <div class="col-6 col-xl-2" data-aos="fade-down">
-            <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">IGNISIA</a></h1>
+            <h1 class="mb-0"><a href="index.php" class="text-black h2 mb-0">IGNISIA</a></h1>
           </div>
           
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                 <li class="has-children">
-                  <a href="index.html">Inicio</a>
+                  <a href="index.php">Inicio</a>
                   <ul class="dropdown">
                     <li><a href="#">Opción 1</a></li>
                     <li><a href="#">Opción 2</a></li>
@@ -63,17 +63,17 @@
                   </ul>
                 </li>
                 <li class="has-children">
-                  <a href="haircut.html">Cortes</a>
+                  <a href="haircut.php">Cortes</a>
                   <ul class="dropdown">
                     <li><a href="#">Opción 1</a></li>
                     <li><a href="#">Opción 2</a></li>
                     <li><a href="#">Opción 3</a></li>
                   </ul>
                 </li>
-                <li class="active"><a href="services.html">Servicios</a></li>
-                <li><a href="about.html">Nosotros</a></li>
-                <li><a href="booking.html">Reservas Online</a></li>
-                <li><a href="contact.html">Contacto</a></li>
+                <li class="active"><a href="services.php">Servicios</a></li>
+                <li><a href="about.php">Nosotros</a></li>
+                <li><a href="booking.php">Reservas Online</a></li>
+                <li><a href="contact.php">Contacto</a></li>
                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
               </ul>
             </nav>
@@ -87,7 +87,7 @@
                 <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a></li>
                 <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a></li>
                  <li>
-                <a href="/login_styled.html" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
+                <a href="/login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
               </li>
               </ul>
             </div>

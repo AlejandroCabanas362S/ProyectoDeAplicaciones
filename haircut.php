@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>HairSal &mdash; Plantilla Colorlib</title>
+  <title>HairSal &mdash;</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
 
   <link rel="stylesheet" href="css/aos.css">
+
   <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -40,19 +41,23 @@
       <div class="site-mobile-menu-body"></div>
     </div>
 
+
+
+
     <header class="site-navbar py-1" role="banner">
 
       <div class="container-fluid">
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2" data-aos="fade-down">
-            <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">IGNISIA</a></h1>
+            <h1 class="mb-0"><a href="index.php" class="text-black h2 mb-0">IGNISIA</a></h1>
           </div>
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                 <li class="has-children">
-                  <a href="index.html">Inicio</a>
+                  <a href="index.php">Inicio</a>
                   <ul class="dropdown">
                     <li><a href="#">Opción Uno</a></li>
                     <li><a href="#">Opción Dos</a></li>
@@ -67,20 +72,19 @@
                     </li>
                   </ul>
                 </li>
-                <li class="has-children">
-                  <a href="haircut.html">Cortes</a>
+                <li class="has-children active">
+                  <a href="haircut.php">Cortes</a>
                   <ul class="dropdown">
                     <li><a href="#">Opción Uno</a></li>
                     <li><a href="#">Opción Dos</a></li>
                     <li><a href="#">Opción Tres</a></li>
                   </ul>
                 </li>
-                <li><a href="services.html">Servicios</a></li>
-                <li><a href="about.html">Nosotros</a></li>
-                <li class="active"><a href="booking.html">Reservar Online</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-                <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a>
-                </li>
+                <li><a href="services.php">Servicios</a></li>
+                <li><a href="about.php">Nosotros</a></li>
+                <li><a href="booking.php">Reservar Online</a></li>
+                <li><a href="contact.php">Contacto</a></li>
+                <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
               </ul>
             </nav>
           </div>
@@ -88,18 +92,27 @@
           <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
             <div class="d-none d-xl-inline-block">
               <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
-                <li><a href="#" class="pl-0 pr-3 text-black"><span class="icon-facebook"></span></a></li>
-                <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a></li>
-                <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a></li>
-                <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a></li>
                 <li>
-                  <a href="/login_styled.html" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
+                  <a href="#" class="pl-0 pr-3 text-black"><span class="icon-facebook"></span></a>
+                </li>
+                <li>
+                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a>
+                </li>
+                <li>
+                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a>
+                </li>
+                <li>
+                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a>
+                </li>
+                <li>
+                  <a href="login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
                 </li>
               </ul>
             </div>
-            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;">
-              <a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
-            </div>
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
+                class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
           </div>
 
         </div>
@@ -107,65 +120,101 @@
 
     </header>
 
+
+
+
+
     <div class="slide-one-item home-slider owl-carousel">
+
       <div class="site-blocks-cover inner-page-cover" style="background-image: url(images/hero_bg_2.jpg);"
         data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
+
             <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
-              <h2 class="text-white font-weight-light mb-2 display-1">Sobre Nosotros</h2>
+              <h2 class="text-white font-weight-light mb-4 display-1 line-height-1">Estilos y Precios</h2>
+
+              <p><a href="#" class="btn btn-black py-3 px-5">¡Reserva Ya!</a></p>
             </div>
           </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="site-section">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
+            <div class="h-100 bg-light site-block-feature-7">
+              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+              <div class="p-4 p-lg-5">
+                <h3 class="text-black h4">Corte Clásico</h3>
+                <p>Un corte tradicional que combina precisión y estilo para un acabado impecable.</p>
+                <p><strong class="font-weight-bold text-primary">$29</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
+            <div class="h-100 bg-light site-block-feature-7">
+              <img src="images/img_2.jpg" alt="Image" class="img-fluid">
+              <div class="p-4 p-lg-5">
+                <h3 class="text-black h4">Fade Moderno</h3>
+                <p>Degradado perfecto para un look fresco y contemporáneo que marca tendencia.</p>
+                <p><strong class="font-weight-bold text-primary">$29</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
+            <div class="h-100 bg-light site-block-feature-7">
+              <img src="images/img_3.jpg" alt="Image" class="img-fluid">
+              <div class="p-4 p-lg-5">
+                <h3 class="text-black h4">Corte con Diseño</h3>
+                <p>Detalles creativos que añaden personalidad y originalidad a tu estilo.</p>
+                <p><strong class="font-weight-bold text-primary">$29</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
+            <div class="h-100 bg-light site-block-feature-7">
+              <img src="images/img_4.jpg" alt="Image" class="img-fluid">
+              <div class="p-4 p-lg-5">
+                <h3 class="text-black h4">Coloración Completa</h3>
+                <p>Transforma tu look con tonos vibrantes aplicados por expertos coloristas.</p>
+                <p><strong class="font-weight-bold text-primary">$29</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
+            <div class="h-100 bg-light site-block-feature-7">
+              <img src="images/img_5.jpg" alt="Image" class="img-fluid">
+              <div class="p-4 p-lg-5">
+                <h3 class="text-black h4">Tratamiento Capilar</h3>
+                <p>Nutrimos tu cabello en profundidad para un brillo y suavidad incomparables.</p>
+                <p><strong class="font-weight-bold text-primary">$29</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
+            <div class="h-100 bg-light site-block-feature-7">
+              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+              <div class="p-4 p-lg-5">
+                <h3 class="text-black h4">Afeitado Premium</h3>
+                <p>Experiencia de afeitado tradicional con toallas calientes y acabado perfecto.</p>
+                <p><strong class="font-weight-bold text-primary">$29</strong></p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
 
     <div class="site-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7">
-            <h2 class="site-section-heading font-weight-light text-black text-center">Nuestros Estilistas</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-4 text-center mb-5" data-aos="fade-up">
-            <img src="images/person_1.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
-            <h2 class="text-black font-weight-light mb-4">Jean Smith</h2>
-            <p class="mb-4">Especialista en cortes modernos y diseños creativos. Jean combina precisión con estilo para
-              que salgas con un look único.</p>
-            <p>
-              <a href="#" class="pl-0 pr-3"><span class="icon-twitter"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-facebook"></span></a>
-            </p>
-          </div>
-          <div class="col-md-6 col-lg-4 text-center mb-5" data-aos="fade-up">
-            <img src="images/person_2.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
-            <h2 class="text-black font-weight-light mb-4">Claire Smith</h2>
-            <p class="mb-4">Experta en coloración y tratamientos capilares. Claire te ayudará a conseguir el tono
-              perfecto y un cabello saludable.</p>
-            <p>
-              <a href="#" class="pl-0 pr-3"><span class="icon-twitter"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-facebook"></span></a>
-            </p>
-          </div>
-          <div class="col-md-6 col-lg-4 text-center mb-5" data-aos="fade-up">
-            <img src="images/person_4.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
-            <h2 class="text-black font-weight-light mb-4">John Smith</h2>
-            <p class="mb-4">Barbero tradicional con un toque contemporáneo. John domina las técnicas clásicas y las
-              adapta a tu estilo personal.</p>
-            <p>
-              <a href="#" class="pl-0 pr-3"><span class="icon-twitter"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-facebook"></span></a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="site-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 mb-5">
@@ -173,15 +222,15 @@
           </div>
           <div class="col-lg-6 bg-white p-md-5 align-self-center">
             <h2 class="display-1 text-black line-height-1 site-section-heading mb-4 pb-3">¡Nuevo look!</h2>
-            <p class="text-black lead"><em>&ldquo;Salí del salón sintiéndome renovada. El equipo de IGNISIA captó
-                exactamente lo que quería y superó mis expectativas.&rdquo;</em></p>
+            <p class="text-black lead"><em>&ldquo;Salí del salón sintiéndome renovada. El equipo de IGNISIA entendió mi
+                estilo y superó mis expectativas.&rdquo;</em></p>
             <p class="lead text-black">&mdash; <em>Stella Martin</em></p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="site-section border-top">
+    <div class="site-section">
       <div class="container">
         <div class="row text-center">
           <div class="col-md-12">
@@ -192,15 +241,19 @@
       </div>
     </div>
 
+
     <footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
             <div class="mb-5">
               <h3 class="footer-heading mb-4">Sobre IGNISIA</h3>
-              <p>Somos un espacio dedicado a resaltar tu estilo con las últimas tendencias y técnicas de barbería. En
-                IGNISIA tu confianza y satisfacción son nuestra prioridad.</p>
+              <p>Combinamos técnicas clásicas con tendencias actuales para brindarte resultados que realzan tu
+                personalidad y estilo.</p>
             </div>
+
+
+
           </div>
           <div class="col-lg-4 mb-5 mb-lg-0">
             <div class="row mb-5">
@@ -224,12 +277,18 @@
                 </ul>
               </div>
             </div>
+
+
+
           </div>
 
           <div class="col-lg-4 mb-5 mb-lg-0">
+
+
             <div class="mb-5">
               <h3 class="footer-heading mb-2">Suscríbete al Boletín</h3>
-              <p>Recibe promociones exclusivas y tips de cuidado directamente en tu correo.</p>
+              <p>Recibe consejos de cuidado capilar y ofertas exclusivas directamente en tu correo.</p>
+
               <form action="#" method="post">
                 <div class="input-group mb-3">
                   <input type="text" class="form-control border-secondary text-white bg-transparent"
@@ -239,7 +298,9 @@
                   </div>
                 </div>
               </form>
+
             </div>
+
           </div>
 
         </div>
@@ -258,10 +319,10 @@
               <script data-cfasync="false"
                 src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
               <script>document.write(new Date().getFullYear());</script> Todos los derechos reservados
-
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
+
         </div>
       </div>
     </footer>
@@ -278,6 +339,7 @@
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
+
   <script src="js/main.js"></script>
 
 </body>

@@ -175,7 +175,7 @@
       <div class="row align-items-center">
 
         <div class="col-6 col-xl-2" data-aos="fade-down">
-          <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">IGNISIA</a></h1>
+          <h1 class="mb-0"><a href="index.php" class="text-black h2 mb-0">IGNISIA</a></h1>
         </div>
         <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
 
@@ -197,7 +197,7 @@
                 <a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a>
               </li>
               <li>
-                <a href="#/Layout/layout.html" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
+                <a href="#/Layout/layout.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
               </li>
             </ul>
           </div>

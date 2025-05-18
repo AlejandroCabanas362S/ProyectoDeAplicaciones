@@ -23,7 +23,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
 
   <link rel="stylesheet" href="css/aos.css">
-
   <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -41,23 +40,18 @@
       <div class="site-mobile-menu-body"></div>
     </div>
 
-
-
-
     <header class="site-navbar py-1" role="banner">
-
       <div class="container-fluid">
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2" data-aos="fade-down">
-            <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">IGNISIA</a></h1>
+            <h1 class="mb-0"><a href="index.php" class="text-black h2 mb-0">IGNISIA</a></h1>
           </div>
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
-
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                 <li class="has-children">
-                  <a href="index.html">Inicio</a>
+                  <a href="index.php">Inicio</a>
                   <ul class="dropdown">
                     <li><a href="#">Opción Uno</a></li>
                     <li><a href="#">Opción Dos</a></li>
@@ -72,18 +66,18 @@
                     </li>
                   </ul>
                 </li>
-                <li class="has-children active">
-                  <a href="haircut.html">Cortes</a>
+                <li class="has-children">
+                  <a href="haircut.php">Cortes</a>
                   <ul class="dropdown">
                     <li><a href="#">Opción Uno</a></li>
                     <li><a href="#">Opción Dos</a></li>
                     <li><a href="#">Opción Tres</a></li>
                   </ul>
                 </li>
-                <li><a href="services.html">Servicios</a></li>
-                <li><a href="about.html">Nosotros</a></li>
-                <li><a href="booking.html">Reservar Online</a></li>
-                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="services.php">Servicios</a></li>
+                <li><a href="about.php">Nosotros</a></li>
+                <li><a href="booking.php">Reservar Online</a></li>
+                <li class="active"><a href="contact.php">Contacto</a></li>
                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
               </ul>
             </nav>
@@ -92,124 +86,33 @@
           <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
             <div class="d-none d-xl-inline-block">
               <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
+                <li><a href="#" class="pl-0 pr-3 text-black"><span class="icon-facebook"></span></a></li>
+                <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a></li>
+                <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a></li>
+                <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a></li>
                 <li>
-                  <a href="#" class="pl-0 pr-3 text-black"><span class="icon-facebook"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a>
-                </li>
-                <li>
-                  <a href="login_styled.html" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
+                  <a href="login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
                 </li>
               </ul>
             </div>
-
-            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
-                class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;">
+              <a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
+            </div>
           </div>
 
         </div>
       </div>
-
     </header>
 
-
-
-
-
     <div class="slide-one-item home-slider owl-carousel">
-
       <div class="site-blocks-cover inner-page-cover" style="background-image: url(images/hero_bg_2.jpg);"
         data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
-
             <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
-              <h2 class="text-white font-weight-light mb-4 display-1 line-height-1">Estilos y Precios</h2>
-
-              <p><a href="#" class="btn btn-black py-3 px-5">¡Reserva Ya!</a></p>
+              <h2 class="text-white font-weight-light mb-2 display-1">Contáctanos</h2>
             </div>
           </div>
-        </div>
-      </div>
-
-    </div>
-
-
-
-    <div class="site-section">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
-            <div class="h-100 bg-light site-block-feature-7">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              <div class="p-4 p-lg-5">
-                <h3 class="text-black h4">Corte Clásico</h3>
-                <p>Un corte tradicional que combina precisión y estilo para un acabado impecable.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
-            <div class="h-100 bg-light site-block-feature-7">
-              <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              <div class="p-4 p-lg-5">
-                <h3 class="text-black h4">Fade Moderno</h3>
-                <p>Degradado perfecto para un look fresco y contemporáneo que marca tendencia.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
-            <div class="h-100 bg-light site-block-feature-7">
-              <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-              <div class="p-4 p-lg-5">
-                <h3 class="text-black h4">Corte con Diseño</h3>
-                <p>Detalles creativos que añaden personalidad y originalidad a tu estilo.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
-            <div class="h-100 bg-light site-block-feature-7">
-              <img src="images/img_4.jpg" alt="Image" class="img-fluid">
-              <div class="p-4 p-lg-5">
-                <h3 class="text-black h4">Coloración Completa</h3>
-                <p>Transforma tu look con tonos vibrantes aplicados por expertos coloristas.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
-            <div class="h-100 bg-light site-block-feature-7">
-              <img src="images/img_5.jpg" alt="Image" class="img-fluid">
-              <div class="p-4 p-lg-5">
-                <h3 class="text-black h4">Tratamiento Capilar</h3>
-                <p>Nutrimos tu cabello en profundidad para un brillo y suavidad incomparables.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
-            <div class="h-100 bg-light site-block-feature-7">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              <div class="p-4 p-lg-5">
-                <h3 class="text-black h4">Afeitado Premium</h3>
-                <p>Experiencia de afeitado tradicional con toallas calientes y acabado perfecto.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
@@ -217,14 +120,68 @@
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 mb-5">
-            <img src="images/person_1.jpg" alt="Image" class="img-md-fluid">
+          <div class="col-md-7 mb-5">
+            <form action="#" class="p-5 bg-white">
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">Nombre</label>
+                  <input type="text" id="fname" class="form-control">
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="lname">Apellido</label>
+                  <input type="text" id="lname" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Correo Electrónico</label>
+                  <input type="email" id="email" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="subject">Asunto</label>
+                  <input type="subject" id="subject" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="message">Mensaje</label>
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control"
+                    placeholder="Escribe tus notas o preguntas aquí..."></textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Enviar Mensaje" class="btn btn-primary py-2 px-4 text-white">
+                </div>
+              </div>
+            </form>
           </div>
-          <div class="col-lg-6 bg-white p-md-5 align-self-center">
-            <h2 class="display-1 text-black line-height-1 site-section-heading mb-4 pb-3">¡Nuevo look!</h2>
-            <p class="text-black lead"><em>&ldquo;Salí del salón sintiéndome renovada. El equipo de IGNISIA entendió mi
-                estilo y superó mis expectativas.&rdquo;</em></p>
-            <p class="lead text-black">&mdash; <em>Stella Martin</em></p>
+
+          <div class="col-md-5">
+            <div class="p-4 mb-3 bg-white">
+              <p class="mb-0 font-weight-bold">Dirección</p>
+              <p class="mb-4">Av. Sta. Teresa 1827, Asunción 001410</p>
+
+              <p class="mb-0 font-weight-bold">Teléfono</p>
+              <p class="mb-4"><a href="#">0985-423-324</a></p>
+
+              <p class="mb-0 font-weight-bold">Correo Electrónico</p>
+              <p class="mb-0"><a href="#">Ignisia@gmail.com</a></p>
+            </div>
+
+            <div class="p-4 mb-3 bg-white">
+              <h3 class="h5 text-black mb-3">Más Información</h3>
+              <p>En IGNISIA nos especializamos en crear estilos únicos que resalten tu personalidad. Nuestro equipo de
+                estilistas certificados te brindará asesoría profesional y tratamientos de vanguardia para que disfrutes
+                cada visita.</p>
+              <p><a href="#" class="btn btn-primary px-4 py-2 text-white">Conoce Más</a></p>
+            </div>
           </div>
         </div>
       </div>
@@ -241,20 +198,18 @@
       </div>
     </div>
 
-
     <footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
             <div class="mb-5">
               <h3 class="footer-heading mb-4">Sobre IGNISIA</h3>
-              <p>Combinamos técnicas clásicas con tendencias actuales para brindarte resultados que realzan tu
-                personalidad y estilo.</p>
+              <p>En IGNISIA combinamos técnicas clásicas con tendencias de vanguardia para ofrecer cortes, color y
+                tratamientos que realzan tu belleza natural. Nuestro compromiso es brindar una experiencia inolvidable
+                en cada visita.</p>
             </div>
-
-
-
           </div>
+
           <div class="col-lg-4 mb-5 mb-lg-0">
             <div class="row mb-5">
               <div class="col-md-12">
@@ -277,30 +232,23 @@
                 </ul>
               </div>
             </div>
-
-
-
           </div>
 
           <div class="col-lg-4 mb-5 mb-lg-0">
-
-
             <div class="mb-5">
               <h3 class="footer-heading mb-2">Suscríbete al Boletín</h3>
-              <p>Recibe consejos de cuidado capilar y ofertas exclusivas directamente en tu correo.</p>
-
+              <p>Recibe consejos de cuidado capilar, promociones exclusivas y novedades de nuestro salón directamente en
+                tu bandeja de entrada.</p>
               <form action="#" method="post">
                 <div class="input-group mb-3">
                   <input type="text" class="form-control border-secondary text-white bg-transparent"
-                    placeholder="Ingresa tu correo" aria-label="Ingresa tu correo" aria-describedby="button-addon2">
+                    placeholder="Ingresa tu Correo" aria-label="Ingresa tu Correo" aria-describedby="button-addon2">
                   <div class="input-group-append">
                     <button class="btn btn-primary text-white" type="button" id="button-addon2">Enviar</button>
                   </div>
                 </div>
               </form>
-
             </div>
-
           </div>
 
         </div>
@@ -314,15 +262,12 @@
             </div>
 
             <p>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               Copyright &copy;
               <script data-cfasync="false"
                 src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-              <script>document.write(new Date().getFullYear());</script> Todos los derechos reservados
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              <script>document.write(new Date().getFullYear());</script> Todos los derechos reservados 
             </p>
           </div>
-
         </div>
       </div>
     </footer>
@@ -339,7 +284,6 @@
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
-
   <script src="js/main.js"></script>
 
 </body>

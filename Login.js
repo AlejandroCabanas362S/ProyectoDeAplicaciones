@@ -10,7 +10,7 @@ document.getElementById('loginForm').addEventListener('submit', (e) => {
 
   if (allowedUsers.includes(email) && pin === correctPin) {
     // login válido
-    window.location.href = 'index.html';
+    window.location.href = 'index.php';
   } else {
     alert('Credenciales inválidas');
   }
