@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>HairSal &mdash;</title>
+    <title>IGNISIA</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -45,10 +45,18 @@
 
       <div class="container-fluid">
         <div class="row align-items-center">
-          
-          <div class="col-6 col-xl-2" data-aos="fade-down">
-            <h1 class="mb-0"><a href="index.php" class="text-black h2 mb-0">IGNISIA</a></h1>
-          </div>
+        <div class="col-6 col-xl-2" data-aos="fade-down">
+        <h1 class="mb-0">
+          <a href="index.php" class="text-black h2 mb-0 d-block">IGNISIA</a>
+
+          <!-- subtítulo en una sola línea -->
+          <small class="d-block text-muted lh-1 text-nowrap" style="font-size:.75rem;">
+            Reservas y turnos online para peluquerías o centros estéticos
+          </small>
+        </h1>
+      </div>
+
+
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
 
@@ -277,12 +285,9 @@
           </div>
 
           <div class="col-lg-4 mb-5 mb-lg-0">
-           
-
             <div class="mb-5">
               <h3 class="footer-heading mb-2">Suscríbete al Boletín</h3>
               <p>Recibe consejos de cuidado capilar y ofertas exclusivas directamente en tu correo.</p>
-
               <form action="#" method="post">
                 <div class="input-group mb-3">
                   <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Ingresa tu correo" aria-label="Ingresa tu correo" aria-describedby="button-addon2">
@@ -291,11 +296,28 @@
                   </div>
                 </div>
               </form>
-
             </div>
-
           </div>
-          
+                   <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="mb-5">
+              <h3 class="footer-heading mb-2">Integrastes</h3>
+              <p>Alejandro Cabañas</p>
+              <p>Lucas Berino</p>
+              <p>Ariel Narvaez </p>
+              <p>Mateus Velazque </p>
+              <p>Antonio Gonzalez</p>
+            </div>
+          </div>
+        </div>
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="mb-5">
+              <h3 class="footer-heading mb-2">Datos</h3>
+              <p>2025</p>
+              <p>Carrera: Ing. Informatica </p>
+              <p>Presentador: Alejandro Cabañas</p>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
