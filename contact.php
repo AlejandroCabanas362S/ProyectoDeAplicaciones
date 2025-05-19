@@ -179,8 +179,11 @@
               <p class="mb-0 font-weight-bold">Teléfono</p>
               <p class="mb-4"><a href="#">0985-423-324</a></p>
 
+              <p class="mb-0 font-weight-bold">Rubica</p>
+              <p class="mb-4"><a href="#">Salon de belleza</a></p>
+
               <p class="mb-0 font-weight-bold">Correo Electrónico</p>
-              <p class="mb-0"><a href="#">Ignisia@gmail.com</a></p>
+              <p class="mb-0"><a href="#">alejandro.cuquejo@gmail.com</a></p>
             </div>
 
             <div class="p-4 mb-3 bg-white">
