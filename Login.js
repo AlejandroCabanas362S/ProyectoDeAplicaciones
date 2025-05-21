@@ -1,5 +1,5 @@
 // lista blanca de correos admitidos
-const allowedUsers = ['cabanas@gmail.com', 'berino@gmail.com'];
+const allowedUsers = ['cabanas@gmail.com', 'berino@gmail.com', 'narvaez@gmail.com', 'velazquez@gmail.com'];
 const correctPin   = '1234';
 
 document.getElementById('loginForm').addEventListener('submit', (e) => {
