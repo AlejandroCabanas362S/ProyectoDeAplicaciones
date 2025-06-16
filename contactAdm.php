@@ -95,14 +95,14 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                       <li><a href="empleados.php">Empleados</a></li>
                       <li><a href="products.php">Productos</a></li>
                       <li><a href="reserve.php">Reservas</a></li>
-                      <li><a href="contactAdm.php">Contactos</a></li>
+                      <li class="active"><a href="contactAdm.php">Contactos</a></li>
                     </ul>
                   </li>
                 <?php endif; ?>
                 <li><a href="haircut.php">Cortes</a></li>
                 <li><a href="services.php">Servicios</a></li>
                 <li><a href="about.php">Nosotros</a></li>
-                <li class="active"><a href="booking.php">Reservar Online</a></li>
+                <li><a href="booking.php">Reservar Online</a></li>
                 <li><a href="contact.php">Contacto</a></li>
                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
                 <li><a href="#" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
