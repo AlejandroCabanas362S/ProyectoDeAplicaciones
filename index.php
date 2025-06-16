@@ -1,3 +1,18 @@
+<?php
+session_start();
+include 'conexion.php';
+$mensaje = '';
+
+$nombre = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : '';
+$usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
+$apellido = isset($_SESSION['apellido']) ? $_SESSION['apellido'] : '';
+$correo = isset($_SESSION['correo']) ? $_SESSION['correo'] : '';
+$rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -51,49 +66,40 @@
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2" data-aos="fade-down">
-          <h1 class="mb-0">
-            <a href="index.php" class="text-black h2 mb-0 d-block">IGNISIA</a>
+            <h1 class="mb-0">
+              <a href="index.php" class="text-black h2 mb-0 d-block">IGNISIA</a>
 
-            <!-- subtítulo en una sola línea -->
-            <small class="d-block text-muted lh-1 text-nowrap" style="font-size:.75rem;">
-              Reservas y turnos online para peluquerías o centros estéticos
-            </small>
-          </h1>
-        </div>
+              <!-- subtítulo en una sola línea -->
+              <small class="d-block text-muted lh-1 text-nowrap" style="font-size:.75rem;">
+                Reservas y turnos online para peluquerías o centros estéticos
+              </small>
+            </h1>
+          </div>
 
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li class="has-children active">
-                  <a href="index.php">Inicio</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Opción Uno</a></li>
-                    <li><a href="#">Opción Dos</a></li>
-                    <li><a href="#">Opción Tres</a></li>
-                    <li class="has-children">
-                      <a href="#">Submenú</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Opción Uno</a></li>
-                        <li><a href="#">Opción Dos</a></li>
-                        <li><a href="#">Opción Tres</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li class="has-children">
-                  <a href="haircut.php">Cortes</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Corte Clásico</a></li>
-                    <li><a href="#">Fade Moderno</a></li>
-                    <li><a href="#">Corte Infantil</a></li>
-                  </ul>
-                </li>
+                <li><a href="index.php">Inico</a></li>
+                <?php if ($rol === 'admin' || $rol === 'emple'): ?>
+                  <li class="has-children">
+                    <a>Administración</a>
+                    <ul class="dropdown">
+                      <li><a href="register.php">Usuarios</a></li>
+                      <li><a href="empleados.php">Empleados</a></li>
+                      <li><a href="products.php">Productos</a></li>
+                      <li><a href="reserve.php">Reservas</a></li>
+                      <li><a href="contactAdm.php">Contactos</a></li>
+                    </ul>
+                  </li>
+                <?php endif; ?>
+                <li><a href="haircut.php">Cortes</a></li>
                 <li><a href="services.php">Servicios</a></li>
                 <li><a href="about.php">Nosotros</a></li>
-                <li><a href="booking.php">Reserva Online</a></li>
+                <li class="active"><a href="booking.php">Reservar Online</a></li>
                 <li><a href="contact.php">Contacto</a></li>
                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
               </ul>
             </nav>
           </div>
@@ -114,7 +120,7 @@
                   <a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a>
                 </li>
                 <li>
-                  <a href="/login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
+                  <a href="/ignisia/login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
                 </li>
               </ul>
             </div>
@@ -173,7 +179,8 @@
           <div class="col-md-6 col-lg-4 text-center">
             <h3 class="line-height-1 mb-3"><span class="d-block display-4 line-height-1 text-black">Bienvenido a</span>
               <span class="d-block display-4 line-height-1"><em
-                  class="text-primary font-weight-bold">IGNISIA</em></span></h3>
+                  class="text-primary font-weight-bold">IGNISIA</em></span>
+            </h3>
             <p>En IGNISIA creemos que cada cabellera cuenta una historia. Nuestro equipo de estilistas profesionales
               combina creatividad y técnicas de vanguardia para realzar tu imagen y reflejar tu personalidad única. Ven
               y vive la experiencia de un servicio personalizado en un ambiente relajado y moderno.</p>
@@ -273,7 +280,7 @@
 
           <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
             <h2 class="text-white font-weight-light mb-5 display-3">Vive nuestros servicios excepcionales</h2>
-           <!--  <a href="https://vimeo.com/channels/staffpicks/93951774"
+            <!--  <a href="https://vimeo.com/channels/staffpicks/93951774"
               class="play-single-big d-inline-block popup-vimeo"><span class="icon-play"></span></a> -->
           </div>
         </div>
@@ -337,7 +344,7 @@
               </form>
             </div>
           </div>
-                 <div class="col-lg-4 mb-5 mb-lg-0">
+          <div class="col-lg-4 mb-5 mb-lg-0">
             <div class="mb-5">
               <h3 class="footer-heading mb-2">Integrastes</h3>
               <p>Alejandro Cabañas</p>
@@ -348,39 +355,41 @@
             </div>
           </div>
         </div>
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <div class="mb-5">
-              <h3 class="footer-heading mb-2">Datos</h3>
-              <p>2025</p>
-              <p>Carrera: Ing. Informatica </p>
-              <p>Presentador: Alejandro Cabañas</p>
-            </div>
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <div class="mb-5">
+            <h3 class="footer-heading mb-2">Datos</h3>
+            <p>2025</p>
+            <p>Carrera: Ing. Informatica </p>
+            <p>Presentador: Alejandro Cabañas</p>
           </div>
-        </div>
-
-        </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="mb-5">
-              <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-            </div>
-
-            <p>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;
-              <script data-cfasync="false"
-                src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-              <script>document.write(new Date().getFullYear());</script> Todos los derechos reservados
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-          </div>
-
         </div>
       </div>
-    </footer>
+
+  </div>
+  <div class="row pt-5 mt-5 text-center">
+    <div class="col-md-12">
+      <div class="mb-5">
+        <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+        <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+        <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+        <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+      </div>
+
+      <p>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy;
+        <script data-cfasync="false"
+          src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script>
+          document.write(new Date().getFullYear());
+        </script> Todos los derechos reservados
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      </p>
+    </div>
+
+  </div>
+  </div>
+  </footer>
   </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>

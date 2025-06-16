@@ -9,18 +9,34 @@ $apellido = isset($_SESSION['apellido']) ? $_SESSION['apellido'] : '';
 $correo = isset($_SESSION['correo']) ? $_SESSION['correo'] : '';
 $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
 
+if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
+  $nombre = $_POST['nombre'];
+  $apellido = $_POST['apellido'];
+  $correo = $_POST['correo'];
+  $asunto = $_POST['asunto'];
+  $msg = $_POST['mensaje'];
+
+  $stmt = $conn->prepare("INSERT INTO contacto (nombre, apellido, correo, asunto, mensaje) VALUES (?, ?, ?, ?, ?)");
+  $stmt->bind_param("sssss", $nombre, $apellido, $correo, $asunto, $msg);
+
+  if ($stmt->execute()) {
+    $mensaje = "✅ Mensaje registrado correctamente.";
+  } else {
+    $mensaje = "❌ Error: " . $stmt->error;
+  }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>IGNISIA &mdash;</title>
+  <title>IGNISIA</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700">
   <link rel="stylesheet" href="fonts/icomoon/style.css">
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -42,9 +58,7 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
 </head>
 
 <body>
-
   <div class="site-wrap">
-
     <div class="site-mobile-menu">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -54,14 +68,9 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
       <div class="site-mobile-menu-body"></div>
     </div>
 
-
-
-
     <header class="site-navbar py-1" role="banner">
-
       <div class="container-fluid">
         <div class="row align-items-center">
-
           <div class="col-6 col-xl-2" data-aos="fade-down">
             <h1 class="mb-0">
               <a href="index.php" class="text-black h2 mb-0 d-block">IGNISIA</a>
@@ -90,10 +99,10 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
                     </ul>
                   </li>
                 <?php endif; ?>
-                <li class="active"><a href="haircut.php">Cortes</a></li>
+                <li><a href="haircut.php">Cortes</a></li>
                 <li><a href="services.php">Servicios</a></li>
                 <li><a href="about.php">Nosotros</a></li>
-                <li><a href="booking.php">Reservar Online</a></li>
+                <li class="active"><a href="booking.php">Reservar Online</a></li>
                 <li><a href="contact.php">Contacto</a></li>
                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
                 <li><a href="#" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
@@ -117,142 +126,69 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
                   <a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a>
                 </li>
                 <li>
-                  <a href="login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
+                  <a href="/ignisia/login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
                 </li>
               </ul>
             </div>
-
-            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
-                class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
           </div>
 
         </div>
       </div>
-
     </header>
 
-
-
-
-
-    <div class="slide-one-item home-slider owl-carousel">
-
-      <div class="site-blocks-cover inner-page-cover" style="background-image: url(images/hero_bg_2.jpg);"
-        data-aos="fade" data-stellar-background-ratio="0.5">
-        <div class="container">
-          <div class="row align-items-center justify-content-center text-center">
-
-            <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
-              <h2 class="text-white font-weight-light mb-4 display-1 line-height-1">Estilos y Precios</h2>
-
-              <p><a href="#" class="btn btn-black py-3 px-5">¡Reserva Ya!</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-
-
-    <div class="site-section">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
-            <div class="h-100 bg-light site-block-feature-7">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              <div class="p-4 p-lg-5">
-                <h3 class="text-black h4">Corte Clásico</h3>
-                <p>Un corte tradicional que combina precisión y estilo para un acabado impecable.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
-            <div class="h-100 bg-light site-block-feature-7">
-              <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              <div class="p-4 p-lg-5">
-                <h3 class="text-black h4">Fade Moderno</h3>
-                <p>Degradado perfecto para un look fresco y contemporáneo que marca tendencia.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
-            <div class="h-100 bg-light site-block-feature-7">
-              <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-              <div class="p-4 p-lg-5">
-                <h3 class="text-black h4">Corte con Diseño</h3>
-                <p>Detalles creativos que añaden personalidad y originalidad a tu estilo.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
-            <div class="h-100 bg-light site-block-feature-7">
-              <img src="images/img_4.jpg" alt="Image" class="img-fluid">
-              <div class="p-4 p-lg-5">
-                <h3 class="text-black h4">Coloración Completa</h3>
-                <p>Transforma tu look con tonos vibrantes aplicados por expertos coloristas.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
-            <div class="h-100 bg-light site-block-feature-7">
-              <img src="images/img_5.jpg" alt="Image" class="img-fluid">
-              <div class="p-4 p-lg-5">
-                <h3 class="text-black h4">Tratamiento Capilar</h3>
-                <p>Nutrimos tu cabello en profundidad para un brillo y suavidad incomparables.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 text-center mb-5 mb-lg-5">
-            <div class="h-100 bg-light site-block-feature-7">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              <div class="p-4 p-lg-5">
-                <h3 class="text-black h4">Afeitado Premium</h3>
-                <p>Experiencia de afeitado tradicional con toallas calientes y acabado perfecto.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
 
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 mb-5">
-            <img src="images/person_1.jpg" alt="Image" class="img-md-fluid">
+
+          <h2 class="mb-4 mt-5 site-section-heading">Mensajes de contacto</h2>
+          <div class="table-responsive">
+            <table class="table table-hover table-borderless shadow-sm rounded bg-white">
+              <thead class="bg-dark text-white">
+                <tr>
+                  <th class="text-center">#</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Correo</th>
+                  <th>Asunto</th>
+                  <th>Mensaje</th>
+                  <th class="text-center">Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                $result = $conn->query("SELECT * FROM contacto");
+                $contador = 1;
+                while ($row = $result->fetch_assoc()) {
+                  echo "<tr>";
+                  echo "<form method='POST' action='contactEdit.php'>";
+                  echo "<td class='align-middle text-center'>" . $contador++ . "</td>";
+                  echo "<td><input type='text' name='nombre' value='" . htmlspecialchars($row['nombre']) . "' class='form-control form-control-sm'></td>";
+                  echo "<td><input type='text' name='apellido' value='" . htmlspecialchars($row['apellido']) . "' class='form-control form-control-sm'></td>";
+                  echo "<td><input type='email' name='correo' value='" . htmlspecialchars($row['correo']) . "' class='form-control form-control-sm'></td>";
+                  echo "<td><input type='text' name='asunto' value='" . htmlspecialchars($row['asunto']) . "' class='form-control form-control-sm'></td>";
+                  echo "<td><input type='text' name='mensaje' value='" . htmlspecialchars($row['mensaje']) . "' class='form-control form-control-sm'></td>";
+                  echo "<td class='text-center'>
+                        <input type='hidden' name='id' value='" . $row['id'] . "'>
+                        <button type='submit' class='btn btn-success btn-sm px-3 rounded-1'>
+                            <i class='icon-check'></i> Guardar
+                        </button>
+                      </td>";
+                  echo "</form>";
+                  echo "</tr>";
+                }
+                ?>
+              </tbody>
+            </table>
           </div>
-          <div class="col-lg-6 bg-white p-md-5 align-self-center">
-            <h2 class="display-1 text-black line-height-1 site-section-heading mb-4 pb-3">¡Nuevo look!</h2>
-            <p class="text-black lead"><em>&ldquo;Salí del salón sintiéndome renovada. El equipo de IGNISIA entendió mi
-                estilo y superó mis expectativas.&rdquo;</em></p>
-            <p class="lead text-black">&mdash; <em>Stella Martin</em></p>
-          </div>
+
+
+
+
         </div>
       </div>
     </div>
-
-    <div class="site-section">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-md-12">
-            <h2 class="mb-4 text-black">Queremos que tu cabello luzca fabuloso</h2>
-            <p class="mb-0"><a href="#" class="btn btn-primary py-3 px-5 text-white">Visita Nuestro Salón Ahora</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
 
     <footer class="site-footer">
       <div class="container">
@@ -260,12 +196,8 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
           <div class="col-lg-4">
             <div class="mb-5">
               <h3 class="footer-heading mb-4">Sobre IGNISIA</h3>
-              <p>Combinamos técnicas clásicas con tendencias actuales para brindarte resultados que realzan tu
-                personalidad y estilo.</p>
+              <p>En IGNISIA combinamos técnicas clásicas con las tendencias más actuales para ofrecer resultados que resalten tu personalidad y estilo.</p>
             </div>
-
-
-
           </div>
           <div class="col-lg-4 mb-5 mb-lg-0">
             <div class="row mb-5">
@@ -300,8 +232,7 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
               <p>Recibe consejos de cuidado capilar y ofertas exclusivas directamente en tu correo.</p>
               <form action="#" method="post">
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control border-secondary text-white bg-transparent"
-                    placeholder="Ingresa tu correo" aria-label="Ingresa tu correo" aria-describedby="button-addon2">
+                  <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Ingresa tu correo" aria-label="Ingresa tu correo" aria-describedby="button-addon2">
                   <div class="input-group-append">
                     <button class="btn btn-primary text-white" type="button" id="button-addon2">Enviar</button>
                   </div>
@@ -329,7 +260,6 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
           </div>
         </div>
       </div>
-
   </div>
   <div class="row pt-5 mt-5 text-center">
     <div class="col-md-12">
@@ -342,9 +272,7 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
 
       <p>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;
-        <script data-cfasync="false"
-          src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script>
           document.write(new Date().getFullYear());
         </script> Todos los derechos reservados

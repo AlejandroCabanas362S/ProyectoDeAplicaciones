@@ -1,3 +1,12 @@
+<?php
+session_start();
+$mensaje_error = '';
+if (isset($_SESSION['mensaje_error'])) {
+  $mensaje_error = $_SESSION['mensaje_error'];
+  unset($_SESSION['mensaje_error']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -20,41 +29,38 @@
   <!-- AOS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700">
+  <!-- Fuentes locales -->
   <link rel="stylesheet" href="fonts/icomoon/style.css">
-
-
-
   <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
+  <!-- Media Element Player -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
 
+  <!-- Estilos locales (rutas corregidas) -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/style.css">
 
-<script defer src="Login.js"></script>
+  <!-- Script del login -->
+  <script defer src="Login.js"></script>
 
-
-  <link rel="stylesheet" href="../../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../css/magnific-popup.css">
-  <link rel="stylesheet" href="../../css/jquery-ui.css">
-  <link rel="stylesheet" href="../../css/owl.carousel.min.css">
-  <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="../../css/bootstrap-datepicker.css">
-  <link rel="stylesheet" href="../../css/aos.css">
-  <link rel="stylesheet" href="../../css/style.css">
-
+  <!-- Estilos personalizados -->
   <style>
     :root {
       --brand-green: #8bc34a;
       --dark: #000;
     }
 
-    /* ==== fondo ==== */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background: url("/images/hero_bg_2.jpg") center/cover no-repeat;
+      background: url("images/hero_bg_2.jpg") center/cover no-repeat;
       filter: blur(8px);
       z-index: -2;
     }
@@ -73,7 +79,6 @@
       min-height: 100vh;
     }
 
-    /* ==== navbar ==== */
     .site-navbar {
       background: #fff;
       border-bottom: 1px solid #eee;
@@ -152,7 +157,6 @@
       color: #555;
     }
 
-    /* ==== botón ==== */
     .btn-primary {
       background: var(--brand-green);
       border-color: var(--brand-green);
@@ -170,83 +174,75 @@
 
 <body>
   <header class="site-navbar py-1" role="banner">
-
     <div class="container-fluid">
       <div class="row align-items-center">
-
         <div class="col-6 col-xl-2" data-aos="fade-down">
           <h1 class="mb-0"><a href="index.php" class="text-black h2 mb-0">IGNISIA</a></h1>
         </div>
-        <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
-
-        </div>
-
+        <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down"></div>
         <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
           <div class="d-none d-xl-inline-block">
             <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
-              <li>
-                <a href="#" class="pl-0 pr-3 text-black"><span class="icon-facebook"></span></a>
-              </li>
-              <li>
-                <a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a>
-              </li>
-              <li>
-                <a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a>
-              </li>
-              <li>
-                <a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a>
-              </li>
-              <li>
-                <a href="#/Layout/layout.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
-              </li>
+              <li><a href="#" class="pl-0 pr-3 text-black"><span class="icon-facebook"></span></a></li>
+              <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a></li>
+              <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a></li>
+              <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a></li>
+              <li><a href="Layout/layout.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a></li>
             </ul>
           </div>
-
-          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
-              class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;">
+            <a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
+          </div>
         </div>
       </div>
     </div>
-
   </header>
 
   <main class="d-flex flex-column align-items-center justify-content-center py-5" style="min-height:80vh;">
     <div class="card login-card p-4" data-aos="zoom-in">
       <h3 class="text-center mb-4">Iniciar Sesión</h3>
-
-      <form id="loginForm">
-        <!-- campos -->
+      <form iid="loginForm" method="post" action="login.php">
         <div class="mb-3">
           <label class="form-label" for="email">Correo electrónico</label>
           <div class="input-group">
             <span class="input-group-text bg-white border-end-0">
               <i class="fa-solid fa-envelope text-muted"></i>
             </span>
-            <input id="email" type="email" class="form-control border-start-0" placeholder="usuario@ejemplo.com" />
+            <input type="text" name="txtusuario" required class="form-control border-start-0" placeholder="usuario@ejemplo.com" />
           </div>
         </div>
-
         <div class="mb-3">
           <label class="form-label" for="password">Contraseña</label>
           <div class="input-group">
             <span class="input-group-text bg-white border-end-0">
               <i class="fa-solid fa-lock text-muted"></i>
             </span>
-            <input id="password" type="password" class="form-control border-start-0" placeholder="Contraseña" />
+            <input type="password" name="txtpassword" required class="form-control border-start-0" placeholder="Contraseña" />
           </div>
         </div>
-
-        <!-- ②  El botón se mantiene dentro del <form>; cerramos el form aquí -->
+        <div class="text-danger text-center mb-3" style="font-size: 0.9rem;">
+          <?php
+          if ($mensaje_error) {
+            echo $mensaje_error;
+          }
+          ?>
+        </div>
         <div class="d-flex justify-content-between align-items-center mb-4">
-          <button type="submit" class="btn btn-primary w-100">Login</button>
+          <button type="submit" id="submitButton" class="btn btn-primary w-100">Login</button>
+
+          <!--   <p>¿No tienes una cuenta? <a href="registro.php">Regístrate aquí</a></p> -->
         </div>
       </form>
     </div>
   </main>
-  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init({ once: true });</script>
+  <script>
+    AOS.init({
+      once: true
+    });
+  </script>
 </body>
 
 </html>

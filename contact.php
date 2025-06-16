@@ -1,3 +1,33 @@
+<?php
+session_start();
+include 'conexion.php';
+$mensaje = '';
+
+$nombre = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : '';
+$usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
+$apellido = isset($_SESSION['apellido']) ? $_SESSION['apellido'] : '';
+$correo = isset($_SESSION['correo']) ? $_SESSION['correo'] : '';
+$rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
+
+if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
+  $nombre = $_POST['nombre'];
+  $apellido = $_POST['apellido'];
+  $correo = $_POST['correo'];
+  $asunto = $_POST['asunto'];
+  $msg = $_POST['mensaje'];
+
+  $stmt = $conn->prepare("INSERT INTO contacto (nombre, apellido, correo, asunto, mensaje) VALUES (?, ?, ?, ?, ?)");
+  $stmt->bind_param("sssss", $nombre, $apellido, $correo, $asunto, $msg);
+
+  if ($stmt->execute()) {
+    $mensaje = "✅ Mensaje registrado correctamente.";
+  } else {
+    $mensaje = "❌ Error: " . $stmt->error;
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,49 +74,41 @@
       <div class="container-fluid">
         <div class="row align-items-center">
 
-         <div class="col-6 col-xl-2" data-aos="fade-down">
-          <h1 class="mb-0">
-            <a href="index.php" class="text-black h2 mb-0 d-block">IGNISIA</a>
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            <h1 class="mb-0">
+              <a href="index.php" class="text-black h2 mb-0 d-block">IGNISIA</a>
 
-            <!-- subtítulo en una sola línea -->
-            <small class="d-block text-muted lh-1 text-nowrap" style="font-size:.75rem;">
-              Reservas y turnos online para peluquerías o centros estéticos
-            </small>
-          </h1>
-        </div>
+              <!-- subtítulo en una sola línea -->
+              <small class="d-block text-muted lh-1 text-nowrap" style="font-size:.75rem;">
+                Reservas y turnos online para peluquerías o centros estéticos
+              </small>
+            </h1>
+          </div>
 
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li class="has-children">
-                  <a href="index.php">Inicio</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Opción Uno</a></li>
-                    <li><a href="#">Opción Dos</a></li>
-                    <li><a href="#">Opción Tres</a></li>
-                    <li class="has-children">
-                      <a href="#">Submenú</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Opción Uno</a></li>
-                        <li><a href="#">Opción Dos</a></li>
-                        <li><a href="#">Opción Tres</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li class="has-children">
-                  <a href="haircut.php">Cortes</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Opción Uno</a></li>
-                    <li><a href="#">Opción Dos</a></li>
-                    <li><a href="#">Opción Tres</a></li>
-                  </ul>
-                </li>
+                <li><a href="index.php">Inico</a></li>
+                <?php if ($rol === 'admin' || $rol === 'emple'): ?>
+                  <li class="has-children">
+                    <a>Administración</a>
+                    <ul class="dropdown">
+                      <li><a href="register.php">Usuarios</a></li>
+                      <li><a href="empleados.php">Empleados</a></li>
+                      <li><a href="products.php">Productos</a></li>
+                      <li><a href="reserve.php">Reservas</a></li>
+                      <li><a href="contactAdm.php">Contactos</a></li>
+                    </ul>
+                  </li>
+                <?php endif; ?>
+                <li><a href="haircut.php">Cortes</a></li>
                 <li><a href="services.php">Servicios</a></li>
                 <li><a href="about.php">Nosotros</a></li>
-                <li><a href="booking.php">Reservar Online</a></li>
-                <li class="active"><a href="contact.php">Contacto</a></li>
+                <li class="active"><a href="booking.php">Reservar Online</a></li>
+                <li><a href="contact.php">Contacto</a></li>
                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
               </ul>
             </nav>
           </div>
@@ -129,45 +151,45 @@
       <div class="container">
         <div class="row">
           <div class="col-md-7 mb-5">
-            <form action="#" class="p-5 bg-white">
+            <form action="contact.php" method="post" class="p-5 bg-white">
+              <h2 class="mb-4 site-section-heading">Agregar contacto</h2>
+
               <div class="row form-group">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">Nombre</label>
-                  <input type="text" id="fname" class="form-control">
+                <div class="col-md-6 mb-3">
+                  <label class="text-black">Nombre</label>
+                  <input type="text" name="nombre" class="form-control" required readonly value="<?php echo htmlspecialchars($_SESSION['nombre'] ?? ''); ?>">
                 </div>
-                <div class="col-md-6">
-                  <label class="text-black" for="lname">Apellido</label>
-                  <input type="text" id="lname" class="form-control">
+                <div class="col-md-6 mb-3">
+                  <label class="text-black">Apellido</label>
+                  <input type="text" name="apellido" class="form-control" required readonly value="<?php echo htmlspecialchars($_SESSION['apellido'] ?? ''); ?>">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-6 mb-3">
+                  <label class="text-black">Correo</label>
+                  <input type="text" name="correo" class="form-control" required readonly value="<?php echo htmlspecialchars($_SESSION['correo'] ?? ''); ?>">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="text-black">Asunto</label>
+                  <input type="text" name="asunto" class="form-control" required>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12 mb-3">
+                  <label class="text-black">Mensaje</label>
+                  <textarea name="mensaje" class="form-control" rows="3" required></textarea>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Correo Electrónico</label>
-                  <input type="email" id="email" class="form-control">
+                  <input type="submit" value="Enviar" class="btn btn-primary py-2 px-4 text-white">
                 </div>
               </div>
 
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="subject">Asunto</label>
-                  <input type="subject" id="subject" class="form-control">
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="message">Mensaje</label>
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control"
-                    placeholder="Escribe tus notas o preguntas aquí..."></textarea>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <input type="submit" value="Enviar Mensaje" class="btn btn-primary py-2 px-4 text-white">
-                </div>
-              </div>
+              <?php if ($mensaje) echo "<div class='mt-2 text-success fw-bold'>$mensaje</div>"; ?>
             </form>
           </div>
 
@@ -194,6 +216,46 @@
               <p><a href="#" class="btn btn-primary px-4 py-2 text-white">Conoce Más</a></p>
             </div>
           </div>
+        </div>
+        <h2 class="mb-4 mt-5 site-section-heading">Tus mensajes de contacto</h2>
+        <div class="table-responsive">
+          <table class="table table-hover table-borderless shadow-sm rounded bg-white">
+            <thead class="bg-dark text-white">
+              <tr>
+                <th class="text-center">#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Asunto</th>
+                <th>Mensaje</th>
+                <th class="text-center">Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              $result = $conn->query("SELECT * FROM contacto WHERE nombre = '$nombre'");
+              $contador = 1;
+              while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<form method='POST' action='contactEdit.php'>";
+                echo "<td class='align-middle text-center'>" . $contador++ . "</td>";
+                echo "<td><input type='text' name='nombre' value='" . htmlspecialchars($row['nombre']) . "' class='form-control form-control-sm' readonly></td>";
+                echo "<td><input type='text' name='apellido' value='" . htmlspecialchars($row['apellido']) . "' class='form-control form-control-sm' readonly></td>";
+                echo "<td><input type='email' name='correo' value='" . htmlspecialchars($row['correo']) . "' class='form-control form-control-sm' readonly></td>";
+                echo "<td><input type='text' name='asunto' value='" . htmlspecialchars($row['asunto']) . "' class='form-control form-control-sm'></td>";
+                echo "<td><input type='text' name='mensaje' value='" . htmlspecialchars($row['mensaje']) . "' class='form-control form-control-sm'></td>";
+                echo "<td class='text-center'>
+                        <input type='hidden' name='id' value='" . $row['id'] . "'>
+                        <button type='submit' class='btn btn-success btn-sm px-3 rounded-1'>
+                            <i class='icon-check'></i> Guardar
+                        </button>
+                      </td>";
+                echo "</form>";
+                echo "</tr>";
+              }
+              ?>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -261,7 +323,7 @@
               </form>
             </div>
           </div>
-                  <div class="col-lg-4 mb-5 mb-lg-0">
+          <div class="col-lg-4 mb-5 mb-lg-0">
             <div class="mb-5">
               <h3 class="footer-heading mb-2">Integrastes</h3>
               <p>Alejandro Cabañas</p>
@@ -272,35 +334,37 @@
             </div>
           </div>
         </div>
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <div class="mb-5">
-              <h3 class="footer-heading mb-2">Datos</h3>
-              <p>2025</p>
-              <p>Carrera: Ing. Informatica </p>
-              <p>Presentador: Alejandro Cabañas</p>
-            </div>
-          </div>
-        </div>
-        </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="mb-5">
-              <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-            </div>
-
-            <p>
-              Copyright &copy;
-              <script data-cfasync="false"
-                src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-              <script>document.write(new Date().getFullYear());</script> Todos los derechos reservados 
-            </p>
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <div class="mb-5">
+            <h3 class="footer-heading mb-2">Datos</h3>
+            <p>2025</p>
+            <p>Carrera: Ing. Informatica </p>
+            <p>Presentador: Alejandro Cabañas</p>
           </div>
         </div>
       </div>
-    </footer>
+  </div>
+  <div class="row pt-5 mt-5 text-center">
+    <div class="col-md-12">
+      <div class="mb-5">
+        <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+        <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+        <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+        <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+      </div>
+
+      <p>
+        Copyright &copy;
+        <script data-cfasync="false"
+          src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script>
+          document.write(new Date().getFullYear());
+        </script> Todos los derechos reservados
+      </p>
+    </div>
+  </div>
+  </div>
+  </footer>
   </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>

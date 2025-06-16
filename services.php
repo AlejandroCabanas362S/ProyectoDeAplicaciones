@@ -1,29 +1,44 @@
+<?php
+session_start();
+include 'conexion.php';
+$mensaje = '';
+
+$nombre = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : '';
+$usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
+$apellido = isset($_SESSION['apellido']) ? $_SESSION['apellido'] : '';
+$correo = isset($_SESSION['correo']) ? $_SESSION['correo'] : '';
+$rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <title>IGNISIA;</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700"> 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+<head>
+  <title>IGNISIA;</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-  
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -38,48 +53,40 @@
     <header class="site-navbar py-1" role="banner">
       <div class="container-fluid">
         <div class="row align-items-center">
-              
-        <div class="col-6 col-xl-2" data-aos="fade-down">
-          <h1 class="mb-0">
-            <a href="index.php" class="text-black h2 mb-0 d-block">IGNISIA</a>
-            <!-- subtítulo en una sola línea -->
-            <small class="d-block text-muted lh-1 text-nowrap" style="font-size:.75rem;">
-              Reservas y turnos online para peluquerías o centros estéticos
-            </small>
-          </h1>
-        </div>
+
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            <h1 class="mb-0">
+              <a href="index.php" class="text-black h2 mb-0 d-block">IGNISIA</a>
+              <!-- subtítulo en una sola línea -->
+              <small class="d-block text-muted lh-1 text-nowrap" style="font-size:.75rem;">
+                Reservas y turnos online para peluquerías o centros estéticos
+              </small>
+            </h1>
+          </div>
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li class="has-children">
-                  <a href="index.php">Inicio</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Opción 1</a></li>
-                    <li><a href="#">Opción 2</a></li>
-                    <li><a href="#">Opción 3</a></li>
-                    <li class="has-children">
-                      <a href="#">Submenú</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Opción 1</a></li>
-                        <li><a href="#">Opción 2</a></li>
-                        <li><a href="#">Opción 3</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li class="has-children">
-                  <a href="haircut.php">Cortes</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Opción 1</a></li>
-                    <li><a href="#">Opción 2</a></li>
-                    <li><a href="#">Opción 3</a></li>
-                  </ul>
-                </li>
+                <li><a href="index.php">Inico</a></li>
+                <?php if ($rol === 'admin' || $rol === 'emple'): ?>
+                  <li class="has-children">
+                    <a>Administración</a>
+                    <ul class="dropdown">
+                      <li><a href="register.php">Usuarios</a></li>
+                      <li><a href="empleados.php">Empleados</a></li>
+                      <li><a href="products.php">Productos</a></li>
+                      <li><a href="reserve.php">Reservas</a></li>
+                      <li><a href="contactAdm.php">Contactos</a></li>
+                    </ul>
+                  </li>
+                <?php endif; ?>
+                <li><a href="haircut.php">Cortes</a></li>
                 <li class="active"><a href="services.php">Servicios</a></li>
                 <li><a href="about.php">Nosotros</a></li>
-                <li><a href="booking.php">Reservas Online</a></li>
+                <li><a href="booking.php">Reservar Online</a></li>
                 <li><a href="contact.php">Contacto</a></li>
                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
               </ul>
             </nav>
           </div>
@@ -91,9 +98,9 @@
                 <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a></li>
                 <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a></li>
                 <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a></li>
-                 <li>
-                <a href="/login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
-              </li>
+                <li>
+                  <a href="/ignisia/login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
+                </li>
               </ul>
             </div>
 
@@ -116,7 +123,7 @@
             </div>
           </div>
         </div>
-      </div>  
+      </div>
     </div>
 
     <div class="site-section">
@@ -219,7 +226,7 @@
               <p>Somos un salón especializado en cortes, afeitados y cuidado capilar masculino. Tu estilo, nuestra pasión.</p>
             </div>
           </div>
-          
+
           <!-- Quick Menu -->
           <div class="col-lg-4 mb-5 mb-lg-0">
             <div class="row mb-5">
@@ -271,32 +278,34 @@
             </div>
           </div>
         </div>
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <div class="mb-5">
-              <h3 class="footer-heading mb-2">Datos</h3>
-              <p>2025</p>
-              <p>Carrera: Ing. Informatica </p>
-              <p>Presentador: Alejandro Cabañas</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Social / Copyright -->
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="mb-5">
-              <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-            </div>
-            <p>
-              &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados 
-            </p>
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <div class="mb-5">
+            <h3 class="footer-heading mb-2">Datos</h3>
+            <p>2025</p>
+            <p>Carrera: Ing. Informatica </p>
+            <p>Presentador: Alejandro Cabañas</p>
           </div>
         </div>
       </div>
-    </footer>
+
+      <!-- Social / Copyright -->
+      <div class="row pt-5 mt-5 text-center">
+        <div class="col-md-12">
+          <div class="mb-5">
+            <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+            <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+            <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+            <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+          </div>
+          <p>
+            &copy;<script>
+              document.write(new Date().getFullYear());
+            </script> Todos los derechos reservados
+          </p>
+        </div>
+      </div>
+  </div>
+  </footer>
   </div>
 
   <!-- Scripts -->
@@ -312,6 +321,7 @@
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
-    
-  </body>
+
+</body>
+
 </html>

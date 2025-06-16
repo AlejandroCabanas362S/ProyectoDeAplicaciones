@@ -1,3 +1,17 @@
+<?php
+session_start();
+include 'conexion.php';
+$mensaje = '';
+
+$nombre = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : '';
+$usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
+$apellido = isset($_SESSION['apellido']) ? $_SESSION['apellido'] : '';
+$correo = isset($_SESSION['correo']) ? $_SESSION['correo'] : '';
+$rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,39 +70,30 @@
           </h1>
         </div>
 
-          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
+     <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li class="has-children">
-                  <a href="index.php">Inicio</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Opción Uno</a></li>
-                    <li><a href="#">Opción Dos</a></li>
-                    <li><a href="#">Opción Tres</a></li>
-                    <li class="has-children">
-                      <a href="#">Submenú</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Opción Uno</a></li>
-                        <li><a href="#">Opción Dos</a></li>
-                        <li><a href="#">Opción Tres</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li class="has-children">
-                  <a href="haircut.php">Cortes</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Opción Uno</a></li>
-                    <li><a href="#">Opción Dos</a></li>
-                    <li><a href="#">Opción Tres</a></li>
-                  </ul>
-                </li>
+                <li><a href="index.php">Inico</a></li>
+                <?php if ($rol === 'admin' || $rol === 'emple'): ?>
+                  <li class="has-children">
+                    <a>Administración</a>
+                    <ul class="dropdown">
+                      <li><a href="register.php">Usuarios</a></li>
+                      <li><a href="empleados.php">Empleados</a></li>
+                      <li><a href="products.php">Productos</a></li>
+                      <li><a href="reserve.php">Reservas</a></li>
+                      <li><a href="contactAdm.php">Contactos</a></li>
+                    </ul>
+                  </li>
+                <?php endif; ?>
+                <li><a href="haircut.php">Cortes</a></li>
                 <li><a href="services.php">Servicios</a></li>
                 <li class="active"><a href="about.php">Nosotros</a></li>
                 <li><a href="booking.php">Reservar Online</a></li>
                 <li><a href="contact.php">Contacto</a></li>
-                <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a>
-                </li>
+                <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
               </ul>
             </nav>
           </div>
@@ -101,7 +106,7 @@
                 <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a></li>
                 <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a></li>
                 <li>
-                  <a href="/login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
+                  <a href="/ignisia/login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
                 </li>
               </ul>
             </div>
