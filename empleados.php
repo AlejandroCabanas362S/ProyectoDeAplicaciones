@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                                 <li><a href="booking.php">Reservar Online</a></li>
                                 <li><a href="contact.php">Contacto</a></li>
                                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
-                                <li><a href="#" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
+                                <li><a href="http://192.168.100.234/wordpress/" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
                             </ul>
                         </nav>
                     </div>
