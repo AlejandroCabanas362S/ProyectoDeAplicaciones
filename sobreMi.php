@@ -227,16 +227,6 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
             </div>
         </div>
 
-        <div class="site-section">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-md-12">
-                        <h2 class="mb-4 text-black">Queremos que tu cabello luzca fabuloso</h2>
-                        <p class="mb-0"><a href="#" class="btn btn-primary py-3 px-5 text-white">Visita Nuestro Salón Ahora</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
         <footer class="site-footer">
