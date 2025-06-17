@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                 <li><a href="contact.php">Contacto</a></li>
                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
                 <li><a href="http://192.168.100.234/wordpress/" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
-                <li><a href="sobreMi.php" target="_blank" >Sobre mi</a></li>
+                <li><a href="sobreMi.php" >Sobre mi</a></li>
               </ul>
             </nav>
           </div>
