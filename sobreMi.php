@@ -210,7 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                         </thead>
                         <tbody>
                             <?php
-                            $result = $conn->query("SELECT * FROM alumnoa_acabanas");
+                            $result = $conn->query("SELECT * FROM alumno_acabanas");
                             $contador = 1;
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>";
