@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                             <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                                 <li><a href="index.php">Inico</a></li>
                                 <?php if ($rol === 'admin' || $rol === 'emple'): ?>
-                                    <li class="has-children">
+                                    <li class="has-children active">
                                         <a>Administración</a>
                                         <ul class="dropdown">
                                             <li><a href="register.php">Usuarios</a></li>
@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                                 <li><a href="contact.php">Contacto</a></li>
                                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
                                 <li><a href="http://192.168.100.234/wordpress/" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
-                                <li><a href="sobreMi.php" target="_blank" rel="noopener noreferrer">Sobre mi</a></li>
+                                <li><a href="sobreMi.php" target="_blank" >Sobre mi</a></li>
                             </ul>
                         </nav>
                     </div>
