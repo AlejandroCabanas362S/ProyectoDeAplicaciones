@@ -8,16 +8,13 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
 $apellido = isset($_SESSION['apellido']) ? $_SESSION['apellido'] : '';
 $correo = isset($_SESSION['correo']) ? $_SESSION['correo'] : '';
 $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-  <title>IGNISIA </title>
+  <title>Alejandro-IGNISIA </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -42,6 +39,23 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
 
   <link rel="stylesheet" href="css/style.css">
 
+  <script>
+    function actualizarHoraParaguay() {
+      // Obtener la hora actual en Paraguay (UTC-4)
+      const opciones = {
+        timeZone: 'America/Asuncion',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      };
+      const horaParaguay = new Intl.DateTimeFormat('es-PY', opciones).format(new Date());
+      document.getElementById('hora-paraguay').textContent = "Hora PY: " + horaParaguay;
+    }
+
+    setInterval(actualizarHoraParaguay, 1000);
+    actualizarHoraParaguay(); // llamada inicial
+  </script>
+
 </head>
 
 <body>
@@ -56,20 +70,13 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-
-
-
-
     <header class="site-navbar py-1" role="banner">
-
       <div class="container-fluid">
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2" data-aos="fade-down">
             <h1 class="mb-0">
               <a href="index.php" class="text-black h2 mb-0 d-block">IGNISIA</a>
-
-              <!-- subtítulo en una sola línea -->
               <small class="d-block text-muted lh-1 text-nowrap" style="font-size:.75rem;">
                 Reservas y turnos online para peluquerías o centros estéticos
               </small>
@@ -80,7 +87,7 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li><a href="index.php">Inico</a></li>
+                <li class="active"><a href="index.php">Inico</a></li>
                 <?php if ($rol === 'admin' || $rol === 'emple'): ?>
                   <li class="has-children">
                     <a>Administración</a>
@@ -96,10 +103,11 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
                 <li><a href="haircut.php">Cortes</a></li>
                 <li><a href="services.php">Servicios</a></li>
                 <li><a href="about.php">Nosotros</a></li>
-                <li class="active"><a href="booking.php">Reservar Online</a></li>
+                <li><a href="booking.php">Reservar Online</a></li>
                 <li><a href="contact.php">Contacto</a></li>
                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
                 <li><a href="http://192.168.100.234/wordpress/" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
+                <li><a href="sobreMi.php" target="_blank" rel="noopener noreferrer">Sobre mi</a></li>
               </ul>
             </nav>
           </div>
@@ -108,16 +116,7 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
             <div class="d-none d-xl-inline-block">
               <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
                 <li>
-                  <a href="#" class="pl-0 pr-3 text-black"><span class="icon-facebook"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a>
+                  <span id="hora-paraguay" class="text-black"></span>
                 </li>
                 <li>
                   <a href="/ignisia/login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
@@ -405,7 +404,7 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
-
+  
 </body>
 
 </html>

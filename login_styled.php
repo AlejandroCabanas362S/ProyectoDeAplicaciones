@@ -12,7 +12,7 @@ if (isset($_SESSION['mensaje_error'])) {
 
 <head>
   <meta charset="utf-8" />
-  <title>Login – IGNISIA</title>
+  <title>Alejandro-IGNISIA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Google Fonts -->
@@ -183,10 +183,6 @@ if (isset($_SESSION['mensaje_error'])) {
         <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
           <div class="d-none d-xl-inline-block">
             <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
-              <li><a href="#" class="pl-0 pr-3 text-black"><span class="icon-facebook"></span></a></li>
-              <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a></li>
-              <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a></li>
-              <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a></li>
               <li><a href="Layout/layout.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a></li>
             </ul>
           </div>

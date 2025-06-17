@@ -16,7 +16,7 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
 <html lang="en">
 
 <head>
-  <title>IGNISIA </title>
+  <title>Alejandro-IGNISIA </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -94,6 +94,7 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
                 <li><a href="contact.php">Contacto</a></li>
                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
                 <li><a href="http://192.168.100.234/wordpress/" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
+                <li><a href="sobreMi.php" target="_blank" rel="noopener noreferrer">Sobre mi</a></li>
               </ul>
             </nav>
           </div>
@@ -101,10 +102,6 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
           <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
             <div class="d-none d-xl-inline-block">
               <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
-                <li><a href="#" class="pl-0 pr-3 text-black"><span class="icon-facebook"></span></a></li>
-                <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a></li>
-                <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a></li>
-                <li><a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a></li>
                 <li>
                   <a href="/ignisia/login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
                 </li>

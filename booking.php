@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
 <html lang="en">
 
 <head>
-  <title>IGNISIA</title>
+  <title>Alejandro-IGNISIA</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
             </h1>
           </div>
 
-               <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
+          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
@@ -105,6 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                 <li><a href="contact.php">Contacto</a></li>
                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
                 <li><a href="http://192.168.100.234/wordpress/" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
+                <li><a href="sobreMi.php" target="_blank" rel="noopener noreferrer">Sobre mi</a></li>
               </ul>
             </nav>
           </div>
@@ -112,18 +113,6 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
           <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
             <div class="d-none d-xl-inline-block">
               <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
-                <li>
-                  <a href="#" class="pl-0 pr-3 text-black"><span class="icon-facebook"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-youtube-play"></span></a>
-                </li>
                 <li>
                   <a href="/ignisia/login_styled.php" class="pl-3 pr-3 text-black"><span class="icon-user"></span></a>
                 </li>
@@ -321,9 +310,6 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                 </ul>
               </div>
             </div>
-
-
-
           </div>
 
           <div class="col-lg-4 mb-5 mb-lg-0">
@@ -398,6 +384,24 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function actualizarHoraParaguay() {
+        const opciones = {
+          timeZone: 'America/Asuncion',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        };
+        const horaParaguay = new Intl.DateTimeFormat('es-PY', opciones).format(new Date());
+        document.getElementById('hora-paraguay').textContent = "Hora PY: " + horaParaguay;
+      }
+
+      setInterval(actualizarHoraParaguay, 1000);
+      actualizarHoraParaguay();
+    });
+  </script>
 
 </body>
 

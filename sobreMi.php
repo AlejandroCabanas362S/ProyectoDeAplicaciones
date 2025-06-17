@@ -9,28 +9,31 @@ $apellido = isset($_SESSION['apellido']) ? $_SESSION['apellido'] : '';
 $correo = isset($_SESSION['correo']) ? $_SESSION['correo'] : '';
 $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
 
-
 if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
     $nombre = $_POST['nombre'];
-    $precio = $_POST['precio'];
-    $cantidad = $_POST['cantidad'];
+    $apellido = $_POST['apellido'];
+    $fecha = $_POST['fecha'];
+    $correo = $_POST['correo'];
+    $servicio = $_POST['servicioDeseado'];
+    $notas = $_POST['notas'];
 
-    $stmt = $conn->prepare("INSERT INTO productos (nombre, precio, cantidad) VALUES (?, ?, ?)");
-    $stmt->bind_param("sdi", $nombre, $precio, $cantidad);
+    $stmt = $conn->prepare("INSERT INTO reservas (nombre, apellido, fecha, correo, servicioDeseado, notas) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $nombre, $apellido, $fecha, $correo, $servicio, $notas);
 
     if ($stmt->execute()) {
-        $mensaje = "✅ Producto registrado correctamente.";
+        $mensaje = "✅ Reserva registrada con éxito.";
     } else {
         $mensaje = "❌ Error: " . $stmt->error;
     }
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Alejandro-IGNISIA</title>
+    <title>Alejadro-IGNISIA</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -72,8 +75,6 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                     <div class="col-6 col-xl-2" data-aos="fade-down">
                         <h1 class="mb-0">
                             <a href="index.php" class="text-black h2 mb-0 d-block">IGNISIA</a>
-
-                            <!-- subtítulo en una sola línea -->
                             <small class="d-block text-muted lh-1 text-nowrap" style="font-size:.75rem;">
                                 Reservas y turnos online para peluquerías o centros estéticos
                             </small>
@@ -91,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                                         <ul class="dropdown">
                                             <li><a href="register.php">Usuarios</a></li>
                                             <li><a href="empleados.php">Empleados</a></li>
-                                            <li class="active"><a href="products.php">Productos</a></li>
+                                            <li><a href="products.php">Productos</a></li>
                                             <li><a href="reserve.php">Reservas</a></li>
                                             <li><a href="contactAdm.php">Contactos</a></li>
                                         </ul>
@@ -104,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                                 <li><a href="contact.php">Contacto</a></li>
                                 <li><a href="https://insignastetic.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
                                 <li><a href="http://192.168.100.234/wordpress/" target="_blank" rel="noopener noreferrer">Beneficios</a></li>
-                                <li><a href="sobreMi.php" target="_blank" rel="noopener noreferrer">Sobre mi</a></li>
+                                <li class="active"><a href="sobreMi.php" target="_blank" rel="noopener noreferrer">Sobre mi</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -124,84 +125,119 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
             </div>
         </header>
 
+        <div class="slide-one-item home-slider owl-carousel">
+            <div class="site-blocks-cover inner-page-cover" style="background-image: url(images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center text-center">
 
+                        <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+                            <h2 class="text-white font-weight-light mb-2 display-1">Sobre mi</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         <div class="site-section bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7 mb-5">
-                        <form action="products.php" method="post" class="p-5 bg-white">
-                            <h2 class="mb-4 site-section-heading">Agregar producto</h2>
+                        <form action="booking.php" method="post" class="p-5 bg-white">
+                            <h2 class="mb-4 site-section-heading">Agregar reserva</h2>
 
                             <div class="row form-group">
                                 <div class="col-md-6 mb-3">
                                     <label class="text-black">Nombre</label>
-                                    <input type="text" name="nombre" class="form-control" required>
+                                    <input type="text" name="nombre" class="form-control" required readonly value="Alejandro">
                                 </div>
-                                <div class="col-md-3 mb-3">
-                                    <label class="text-black">Precio</label>
-                                    <input type="number" name="precio" class="form-control" required>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <label class="text-black">Cantidad</label>
-                                    <input type="number" name="cantidad" class="form-control" required>
+                                <div class="col-md-6 mb-3">
+                                    <label class="text-black">Apellido</label>
+                                    <input type="text" name="apellido" class="form-control" required readonly value="Cabañas">
                                 </div>
                             </div>
 
                             <div class="row form-group">
-                                <div class="col-md-12">
-                                    <input type="submit" value="Registrar" class="btn btn-primary py-2 px-4 text-white">
+                                <div class="col-md-6 mb-3">
+                                    <label class="text-black">Fecha</label>
+                                    <input type="text" name="Carrea" class="form-control" required readonly value="Ing.Informatica ">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="text-black">Correo</label>
+                                    <input type="text" name="correo" class="form-control" required readonly value="acabana@gmail.com">
                                 </div>
                             </div>
-
+                            <div class="row form-group">
+                                <div class="col-md-6 mb-3">
+                                    <label class="text-black">Universidad</label>
+                                    <input type="text" name="Universidad" class="form-control" required readonly value="Universidad Americana">
+                                </div>
+                            </div>
                             <?php if ($mensaje) echo "<div class='mt-2 text-success fw-bold'>$mensaje</div>"; ?>
                         </form>
-
                     </div>
+                    <div class="col-md-5">
 
+                        <div class="p-4 mb-3 bg-white">
+                            <p class="mb-0 font-weight-bold">Nombre completo</p>
+                            <p class="mb-4">Alejandro Gabriel Cabañas</p>
 
+                            <p class="mb-0 font-weight-bold">Carrea</p>
+                            <p class="mb-4"><a href="#">Ing. informatuca</a></p>
 
-
-
-
+                            <p class="mb-0 font-weight-bold">C.I</p>
+                            <p class="mb-0"><a href="#">5027317</a></p>
+                        </div>
+                        <div class="p-4 mb-3 bg-white">
+                            <h3 class="h5 text-black mb-3">Más Información</h3>
+                            <p>Soy estudiante de la carrera de Ing. informatica, actualmetne cursando el penultimo semestre de la carrera, recido en Asuncion y tengo 22 años</p>
+                        </div>
+                        <div class="p-4 mb-3 bg-white">
+                            <h3 class="h5 text-black mb-3">Logica JS individual</h3>
+                            <span id="hora-paraguay" class="text-black"></span>
+                        </div>
+                    </div>
                 </div>
-                <h2 class="mb-4 mt-5 site-section-heading">Lista de productos</h2>
+                <h2 class="mb-4 mt-5 site-section-heading">Sobre mi</h2>
                 <div class="table-responsive">
                     <table class="table table-hover table-borderless shadow-sm rounded bg-white">
                         <thead class="bg-dark text-white">
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Nombre</th>
-                                <th>Precio</th>
-                                <th>Cantidad</th>
-                                <th class="text-center">Acción</th>
+                                <th>CI</th>
+                                <th>Correo</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $result = $conn->query("SELECT * FROM productos");
+                            $result = $conn->query("SELECT * FROM alumnoa_acabanas");
                             $contador = 1;
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>";
-                                echo "<form method='POST' action='productsEdit.php'>";
                                 echo "<td class='align-middle text-center'>" . $contador++ . "</td>";
-                                echo "<td><input type='text' name='nombre' value='" . htmlspecialchars($row['nombre']) . "' class='form-control form-control-sm'></td>";
-                                echo "<td><input type='number' step='0.01' name='precio' value='" . $row['precio'] . "' class='form-control form-control-sm'></td>";
-                                echo "<td><input type='number' name='cantidad' value='" . $row['cantidad'] . "' class='form-control form-control-sm'></td>";
-                                echo "<td class='text-center'>
-                                    <input type='hidden' name='id' value='" . $row['id'] . "'>
-                                    <button type='submit' class='btn btn-success btn-sm px-3 rounded-1'>
-                                        <i class='icon-check'></i> Guardar
-                                    </button>
-                                    </td>";
-                                echo "</form>";
-                                echo "</tr>";
+                                echo "<td>" . htmlspecialchars($row['nombre']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['ci']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['correo']) . "</td>";
                             }
                             ?>
                         </tbody>
                     </table>
                 </div>
+
             </div>
         </div>
+
+        <div class="site-section">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <h2 class="mb-4 text-black">Queremos que tu cabello luzca fabuloso</h2>
+                        <p class="mb-0"><a href="#" class="btn btn-primary py-3 px-5 text-white">Visita Nuestro Salón Ahora</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <footer class="site-footer">
             <div class="container">
@@ -284,10 +320,12 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
             </div>
 
             <p>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
                 <script>
                     document.write(new Date().getFullYear());
                 </script> Todos los derechos reservados
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
         </div>
 
@@ -309,6 +347,24 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
     <script src="js/aos.js"></script>
 
     <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function actualizarHoraParaguay() {
+                const opciones = {
+                    timeZone: 'America/Asuncion',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                };
+                const horaParaguay = new Intl.DateTimeFormat('es-PY', opciones).format(new Date());
+                document.getElementById('hora-paraguay').textContent = "Hora PY: " + horaParaguay;
+            }
+
+            setInterval(actualizarHoraParaguay, 1000);
+            actualizarHoraParaguay();
+        });
+    </script>
 
 </body>
 
