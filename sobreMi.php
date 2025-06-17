@@ -143,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                 <div class="row">
                     <div class="col-md-7 mb-5">
                         <form action="booking.php" method="post" class="p-5 bg-white">
-                            <h2 class="mb-4 site-section-heading">Agregar reserva</h2>
+                            <h2 class="mb-4 site-section-heading">Datos</h2>
 
                             <div class="row form-group">
                                 <div class="col-md-6 mb-3">
