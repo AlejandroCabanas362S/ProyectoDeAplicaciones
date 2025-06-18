@@ -12,7 +12,7 @@ if (isset($_SESSION['mensaje_error'])) {
 
 <head>
   <meta charset="utf-8" />
-  <title>Alejandro-IGNISIA</title>
+  <title>Mateus-IGNISIA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Google Fonts -->

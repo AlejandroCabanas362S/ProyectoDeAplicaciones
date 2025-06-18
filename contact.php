@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
 <html lang="en">
 
 <head>
-  <title>Alejandro-IGNISIA &mdash;</title>
+  <title>Mateus-IGNISIA &mdash;</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -336,7 +336,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
             <h3 class="footer-heading mb-2">Datos</h3>
             <p>2025</p>
             <p>Carrera: Ing. Informatica </p>
-            <p>Presentador: Alejandro Cabañas</p>
+            <p>Presentador: Mateus Velazquez</p>
           </div>
         </div>
       </div>

@@ -58,6 +58,99 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
 
 </head>
 
+<style>
+    :root {
+        --accent: #8bc34a;
+    }
+
+
+    .booking-card-v2 {
+        display: flex;
+        background: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+        overflow: hidden;
+    }
+
+    .booking-card-v2::before {
+        content: "";
+        width: 8px;
+        background: var(--accent);
+    }
+
+    .booking-card-v2 .card-body {
+        flex: 1;
+        padding: 2rem;
+    }
+
+    .booking-card-v2 h2 {
+        background: var(--accent);
+        color: #fff;
+        padding: .75rem 1rem;
+        border-radius: .5rem;
+        margin: -1rem 0 1.5rem -1rem;
+        width: calc(100% + 2rem);
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .booking-card-v2 label {
+        font-weight: 600;
+        color: #495057;
+        margin-bottom: .25rem;
+    }
+
+    .booking-card-v2 input {
+        background: #f8fafc;
+        border: 1px solid #ced4da;
+        border-radius: .5rem;
+    }
+
+    .table-list {
+        border-collapse: separate;
+        border-spacing: 0;
+        width: 100%;
+    }
+
+    .table-list tbody tr {
+        position: relative;
+    }
+
+    .table-list tbody tr::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 6px;
+        background: var(--accent);
+        border-radius: .5rem 0 0 .5rem;
+    }
+
+    .table-list td:first-child,
+    .table-list th:first-child {
+        padding-left: 1.25rem;
+    }
+
+    .table-list thead th {
+        background: #f1f3f5;
+        color: var(--accent);
+        font-weight: 700;
+        padding: .75rem 1rem;
+    }
+
+    .table-list tbody td {
+        padding: .75rem 1rem;
+        border-bottom: 1px solid #e9ecef;
+        vertical-align: middle;
+    }
+
+    .table-list tbody tr:hover {
+        background: #f6fbf5;
+    }
+</style>
+
+
 <body>
     <div class="site-wrap">
         <div class="site-mobile-menu">
@@ -126,7 +219,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
         </header>
 
         <div class="slide-one-item home-slider owl-carousel">
-            <div class="site-blocks-cover inner-page-cover" style="background-image: url(images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+            <div class="site-blocks-cover inner-page-cover" style="background-image: url(images/hero_bg_4.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
                 <div class="container">
                     <div class="row align-items-center justify-content-center text-center">
 
@@ -140,67 +233,51 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
         </div>
         <div class="site-section bg-light">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-7 mb-5">
-                        <form action="booking.php" method="post" class="p-5 bg-white">
-                            <h2 class="mb-4 site-section-heading">Datos</h2>
 
-                            <div class="row form-group">
-                                <div class="col-md-6 mb-3">
-                                    <label class="text-black">Nombre</label>
-                                    <input type="text" name="nombre" class="form-control" required readonly value="Alejandro">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="text-black">Apellido</label>
-                                    <input type="text" name="apellido" class="form-control" required readonly value="Cabañas">
-                                </div>
-                            </div>
+                <div class="row gx-4 gy-4 py-4">
+                    <!-- Formulario 1 -->
+                    <div class="col-md-6 col-lg-5">
+                        <form class="booking-card-v2" action="booking.php" method="post">
+                            <div class="card-body">
+                                <h2>Datos del Estudiante</h2>
 
-                            <div class="row form-group">
-                                <div class="col-md-6 mb-3">
-                                    <label class="text-black">Fecha</label>
-                                    <input type="text" name="Carrea" class="form-control" required readonly value="Ing.Informatica ">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="text-black">Correo</label>
-                                    <input type="text" name="correo" class="form-control" required readonly value="acabana@gmail.com">
-                                </div>
+                                <label>Nombre</label>
+                                <input type="text" name="nombre" class="form-control mb-3" readonly value="Mateus">
+
+                                <label>Apellido</label>
+                                <input type="text" name="apellido" class="form-control mb-3" readonly value="Vazquez">
+
+                               
+
+                                <label>Cumpleaños</label>
+                                <input type="text" name="Cumpleaños" class="form-control" readonly value="23/06/2002">
+
+                                 <label>Carrera</label>
+                                <input type="text" name="Carrea" class="form-control mb-3" readonly value="Ing. Informática">
+
+                                <?php if ($mensaje) echo "<div class='mt-3 text-success fw-bold'>$mensaje</div>"; ?>
                             </div>
-                            <div class="row form-group">
-                                <div class="col-md-6 mb-3">
-                                    <label class="text-black">Universidad</label>
-                                    <input type="text" name="Universidad" class="form-control" required readonly value="Universidad Americana">
-                                </div>
-                            </div>
-                            <?php if ($mensaje) echo "<div class='mt-2 text-success fw-bold'>$mensaje</div>"; ?>
                         </form>
                     </div>
-                    <div class="col-md-5">
 
-                        <div class="p-4 mb-3 bg-white">
-                            <p class="mb-0 font-weight-bold">Nombre completo</p>
-                            <p class="mb-4">Alejandro Gabriel Cabañas</p>
+                    <!-- Formulario 2 -->
+                    <div class="col-md-6 col-lg-5">
+                        <form class="booking-card-v2" action="booking.php" method="post">
+                            <div class="card-body">
+                                <h2>Lógica JS</h2>
 
-                            <p class="mb-0 font-weight-bold">Carrea</p>
-                            <p class="mb-4"><a href="#">Ing. informatuca</a></p>
-
-                            <p class="mb-0 font-weight-bold">C.I</p>
-                            <p class="mb-0"><a href="#">5027317</a></p>
-                        </div>
-                        <div class="p-4 mb-3 bg-white">
-                            <h3 class="h5 text-black mb-3">Más Información</h3>
-                            <p>Soy estudiante de la carrera de Ing. informatica, actualmetne cursando el penultimo semestre de la carrera, recido en Asuncion y tengo 22 años</p>
-                        </div>
-                        <div class="p-4 mb-3 bg-white">
-                            <h3 class="h5 text-black mb-3">Logica JS individual</h3>
-                            <span id="hora-paraguay" class="text-black"></span>
-                        </div>
+                              
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <h2 class="mb-4 mt-5 site-section-heading">Sobre mi</h2>
+
+
+                <h2 class="mb-4 mt-5 site-section-heading" style="color:#8bc34a;">Sobre mí</h2>
+
                 <div class="table-responsive">
-                    <table class="table table-hover table-borderless shadow-sm rounded bg-white">
-                        <thead class="bg-dark text-white">
+                    <table class="table-list">
+                        <thead>
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Nombre</th>
@@ -210,7 +287,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                         </thead>
                         <tbody>
                             <?php
-                            $result = $conn->query("SELECT * FROM alumno_acabanas");
+                            $result = $conn->query("SELECT * FROM alumno_anarvaez");
                             $contador = 1;
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>";
@@ -218,6 +295,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                                 echo "<td>" . htmlspecialchars($row['nombre']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['ci']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['correo']) . "</td>";
+                                echo "</tr>";
                             }
                             ?>
                         </tbody>
@@ -295,7 +373,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                         <h3 class="footer-heading mb-2">Datos</h3>
                         <p>2025</p>
                         <p>Carrera: Ing. Informatica </p>
-                        <p>Presentador: Alejandro Cabañas</p>
+                        <p>Presentador: Mateus Velazquez</p>
                     </div>
                 </div>
             </div>
