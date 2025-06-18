@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
 <html lang="en">
 
 <head>
-  <title>Alejandro-IGNISIA &mdash;</title>
+  <title>Ariel-IGNISIA &mdash;</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -193,16 +193,16 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
           <div class="col-md-5">
             <div class="p-4 mb-3 bg-white">
               <p class="mb-0 font-weight-bold">Dirección</p>
-              <p class="mb-4">Av. Sta. Teresa 1827, Asunción 001410</p>
+              <p class="mb-4">Brasilia</p>
 
               <p class="mb-0 font-weight-bold">Teléfono</p>
-              <p class="mb-4"><a href="#">0985-423-324</a></p>
+              <p class="mb-4"><a href="#">0985-422-679</a></p>
 
               <p class="mb-0 font-weight-bold">Rubica</p>
-              <p class="mb-4"><a href="#">Salon de belleza</a></p>
+              <p class="mb-4"><a href="#">Estlo</a></p>
 
               <p class="mb-0 font-weight-bold">Correo Electrónico</p>
-              <p class="mb-0"><a href="#">alejandro.cuquejo@gmail.com</a></p>
+              <p class="mb-0"><a href="#">ariel.narvez@gmail.com</a></p>
             </div>
 
             <div class="p-4 mb-3 bg-white">
@@ -336,7 +336,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
             <h3 class="footer-heading mb-2">Datos</h3>
             <p>2025</p>
             <p>Carrera: Ing. Informatica </p>
-            <p>Presentador: Alejandro Cabañas</p>
+            <p>Presentador: Ariel Narvaez</p>
           </div>
         </div>
       </div>

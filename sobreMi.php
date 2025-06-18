@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
 <html lang="en">
 
 <head>
-    <title>Alejadro-IGNISIA</title>
+    <title>Ariel-IGNISIA</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -57,6 +57,61 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
     <link rel="stylesheet" href="css/style.css">
 
 </head>
+
+<style>
+    :root {
+        --accent: #8bc34a;
+    }
+
+    .booking-card {
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+    }
+
+    .booking-card h2 {
+        color: var(--accent);
+        font-weight: 700;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: .5rem;
+        margin-bottom: 1.5rem;
+    }
+</style>
+
+
+<style>
+    .table-custom thead {
+        background: #8bc34a;
+        color: #fff;
+    }
+
+    .table-custom tbody tr:nth-child(even) {
+        background: #f8fafc;
+    }
+
+    .table-custom tbody tr:hover {
+        background: #e8f5e9;
+    }
+
+    .table-custom td:first-child,
+    .table-custom th:first-child {
+        width: 60px;
+        font-weight: 600;
+    }
+
+    .table-custom td,
+    .table-custom th {
+        padding: .75rem 1rem;
+        vertical-align: middle;
+    }
+
+    .table-custom {
+        border-radius: .75rem;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+    }
+</style>
 
 <body>
     <div class="site-wrap">
@@ -126,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
         </header>
 
         <div class="slide-one-item home-slider owl-carousel">
-            <div class="site-blocks-cover inner-page-cover" style="background-image: url(images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+            <div class="site-blocks-cover inner-page-cover" style="background-image: url(images/hero_bg_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
                 <div class="container">
                     <div class="row align-items-center justify-content-center text-center">
 
@@ -140,67 +195,78 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
         </div>
         <div class="site-section bg-light">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-7 mb-5">
-                        <form action="booking.php" method="post" class="p-5 bg-white">
-                            <h2 class="mb-4 site-section-heading">Datos</h2>
 
-                            <div class="row form-group">
-                                <div class="col-md-6 mb-3">
-                                    <label class="text-black">Nombre</label>
-                                    <input type="text" name="nombre" class="form-control" required readonly value="Alejandro">
+
+
+
+
+                <div class="row justify-content-center gx-4 gy-4 py-4">
+                    <!-- ──────────────── Primer formulario ──────────────── -->
+                    <div class="col-md-6 col-lg-5">
+                        <form action="booking.php" method="post" class="p-4 booking-card">
+                            <h2>Datos del Estudiante</h2>
+
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label">Carrera</label>
+                                    <input type="text" name="Carrea" class="form-control" readonly value="Ing. Informática">
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="text-black">Apellido</label>
-                                    <input type="text" name="apellido" class="form-control" required readonly value="Cabañas">
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Nombre</label>
+                                    <input type="text" name="nombre" class="form-control" readonly value="Ariel">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Apellido</label>
+                                    <input type="text" name="apellido" class="form-control" readonly value="Narvaz">
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Ciudad</label>
+                                    <input type="text" name="Ciudad" class="form-control" readonly value="Capiatá">
                                 </div>
                             </div>
 
-                            <div class="row form-group">
-                                <div class="col-md-6 mb-3">
-                                    <label class="text-black">Fecha</label>
-                                    <input type="text" name="Carrea" class="form-control" required readonly value="Ing.Informatica ">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="text-black">Correo</label>
-                                    <input type="text" name="correo" class="form-control" required readonly value="acabana@gmail.com">
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col-md-6 mb-3">
-                                    <label class="text-black">Universidad</label>
-                                    <input type="text" name="Universidad" class="form-control" required readonly value="Universidad Americana">
-                                </div>
-                            </div>
-                            <?php if ($mensaje) echo "<div class='mt-2 text-success fw-bold'>$mensaje</div>"; ?>
+                            <?php if ($mensaje) echo "<div class='mt-3 text-success fw-bold'>$mensaje</div>"; ?>
                         </form>
                     </div>
-                    <div class="col-md-5">
 
-                        <div class="p-4 mb-3 bg-white">
-                            <p class="mb-0 font-weight-bold">Nombre completo</p>
-                            <p class="mb-4">Alejandro Gabriel Cabañas</p>
+                    <!-- ──────────────── Segundo formulario ──────────────── -->
+                    <div class="col-md-6 col-lg-5">
+                        <form action="booking.php" method="post" class="p-4 booking-card">
+                            <h2>Lógica JS</h2>
 
-                            <p class="mb-0 font-weight-bold">Carrea</p>
-                            <p class="mb-4"><a href="#">Ing. informatuca</a></p>
+                            <div class="col-12">
+                                <label class="form-label">Ingresa texto</label>
+                                <input type="text" id="texto-original" class="form-control">
+                            </div>
 
-                            <p class="mb-0 font-weight-bold">C.I</p>
-                            <p class="mb-0"><a href="#">5027317</a></p>
-                        </div>
-                        <div class="p-4 mb-3 bg-white">
-                            <h3 class="h5 text-black mb-3">Más Información</h3>
-                            <p>Soy estudiante de la carrera de Ing. informatica, actualmetne cursando el penultimo semestre de la carrera, recido en Asuncion y tengo 22 años</p>
-                        </div>
-                        <div class="p-4 mb-3 bg-white">
-                            <h3 class="h5 text-black mb-3">Logica JS individual</h3>
-                            <span id="hora-paraguay" class="text-black"></span>
-                        </div>
+                            <div class="col-12">
+                                <label class="form-label">Texto invertido</label>
+                                <input type="text" id="texto-invertido" class="form-control" readonly>
+                            </div>
+
+                            <button type="button" class="btn btn-success mt-2" onclick="invertirTexto()">
+                                Invertir
+                            </button>
+
+                            <?php if ($mensaje) echo "<div class='mt-3 text-success fw-bold'>$mensaje</div>"; ?>
+                        </form>
                     </div>
                 </div>
-                <h2 class="mb-4 mt-5 site-section-heading">Sobre mi</h2>
+
+
+
+
+
+
+
+                <h2 class="mb-4 mt-5 site-section-heading">Datos Base de datos</h2>
+
                 <div class="table-responsive">
-                    <table class="table table-hover table-borderless shadow-sm rounded bg-white">
-                        <thead class="bg-dark text-white">
+                    <table class="table table-hover table-borderless table-custom bg-white">
+                        <thead>
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Nombre</th>
@@ -210,7 +276,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                         </thead>
                         <tbody>
                             <?php
-                            $result = $conn->query("SELECT * FROM alumno_acabanas");
+                            $result = $conn->query("SELECT * FROM alumno_anarvaez");
                             $contador = 1;
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>";
@@ -223,6 +289,9 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                         </tbody>
                     </table>
                 </div>
+
+
+
 
             </div>
         </div>
@@ -238,32 +307,32 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                             <p>En IGNISIA combinamos técnicas clásicas con las tendencias más actuales para ofrecer resultados que resalten tu personalidad y estilo.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="row mb-5">
-                            <div class="col-md-12">
-                                <h3 class="footer-heading mb-4">Menú Rápido</h3>
-                            </div>
-                            <div class="col-md-6 col-lg-6">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Inicio</a></li>
-                                    <li><a href="#">Barberos</a></li>
-                                    <li><a href="#">Noticias</a></li>
-                                    <li><a href="#">Equipo</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6 col-lg-6">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Sobre Nosotros</a></li>
-                                    <li><a href="#">Política de Privacidad</a></li>
-                                    <li><a href="#">Contacto</a></li>
-                                    <li><a href="#">Membresía</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                    <!-- 🟢  BLOQUE “Lógica JS” REEMPLAZADO -->
+                    <!-- ───────── BLOQUE ÚNICO “Lógica JS” ───────── -->
+                    <div class="col-md-6 col-lg-5">
+                        <form class="p-4 booking-card" onsubmit="return false"><!-- evita submit -->
+                            <h2>Lógica JS</h2>
 
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label">Ingresa texto</label>
+                                    <input type="text" id="texto-original" class="form-control">
+                                </div>
 
+                                <div class="col-12">
+                                    <label class="form-label">Texto invertido</label>
+                                    <input type="text" id="texto-invertido" class="form-control" readonly>
+                                </div>
 
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-success" onclick="invertirTexto()">
+                                        Invertir
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
+
 
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="mb-5">
@@ -295,7 +364,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
                         <h3 class="footer-heading mb-2">Datos</h3>
                         <p>2025</p>
                         <p>Carrera: Ing. Informatica </p>
-                        <p>Presentador: Alejandro Cabañas</p>
+                        <p>Presentador: Ariel Narvaez</p>
                     </div>
                 </div>
             </div>
@@ -339,21 +408,19 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['nombre'])) {
     <script src="js/main.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            function actualizarHoraParaguay() {
-                const opciones = {
-                    timeZone: 'America/Asuncion',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit'
-                };
-                const horaParaguay = new Intl.DateTimeFormat('es-PY', opciones).format(new Date());
-                document.getElementById('hora-paraguay').textContent = "Hora PY: " + horaParaguay;
+        function invertirTexto() {
+            const inEl = document.getElementById('texto-original');
+            const outEl = document.getElementById('texto-invertido');
+
+            /* Si por algún motivo no encuentra los elementos, lo avisa en consola */
+            if (!inEl || !outEl) {
+                console.warn('No se encontraron los inputs de texto.');
+                return;
             }
 
-            setInterval(actualizarHoraParaguay, 1000);
-            actualizarHoraParaguay();
-        });
+            /* Array.from gestiona correctamente tildes, emoji, etc. */
+            outEl.value = Array.from(inEl.value).reverse().join('');
+        }
     </script>
 
 </body>

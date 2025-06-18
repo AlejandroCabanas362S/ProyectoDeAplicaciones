@@ -15,7 +15,7 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
 <html lang="es">
 
 <head>
-  <title>Alejandro-IGNISIA</title>
+  <title>Ariel-IGNISIA</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -280,7 +280,7 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
             <h3 class="footer-heading mb-2">Datos</h3>
             <p>2025</p>
             <p>Carrera: Ing. Informatica </p>
-            <p>Presentador: Alejandro Cabañas</p>
+            <p>Presentador: Ariel Narvaez</p>
           </div>
         </div>
       </div>
